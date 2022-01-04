@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TicTacToe</string>
+    <string name="winDisplay">Winner is:</string>
+    <string name="text_next_player">Next player is %1$s</string>
+    <string name="text_next_0">Next player is 0</string>
+    <string name="btnReset">Reset</string>
+    <string name="time_format">Time taken by current player: %s</string>
+    <string name="starting_player">The next player is O</string>
+</resources>

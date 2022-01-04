@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="hu.ait.bookexchange">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/icon"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BookExchange">
+        <activity
+            android:name=".ContactActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ClaimedBookActivity"
+            android:exported="true"
+            android:label="@string/title_activity_claimed_book"
+            android:theme="@style/Theme.BookExchange.NoActionBar" />
+        <activity
+            android:name=".OwnedBookActivity"
+            android:exported="true"
+            android:label="@string/title_activity_owned_book"
+            android:theme="@style/Theme.BookExchange.NoActionBar" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="true" />
+        <activity
+            android:name=".BookListActivity"
+            android:exported="true"
+            android:label="@string/title_activity_book_list"
+            android:theme="@style/Theme.BookExchange.NoActionBar" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

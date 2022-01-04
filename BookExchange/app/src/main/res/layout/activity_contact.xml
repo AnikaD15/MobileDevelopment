@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/contact_form_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="5dp"
+        android:text="Contact Us"
+        android:textColor="#009688"
+        android:textSize="40sp"
+        android:typeface="serif" />
+
+    <EditText
+        android:id="@+id/etSubject"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:hint="Subject"
+        android:inputType="textEmailSubject" />
+
+    <EditText
+        android:id="@+id/etMsg"
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:gravity="top"
+        android:hint="Your Message"
+        android:fitsSystemWindows="true"
+        android:breakStrategy="balanced"
+        android:inputType="textMultiLine"
+        android:singleLine="false"
+        android:padding="5dp" />
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:elevation="4dp"
+        android:paddingLeft="70dp"
+        android:paddingRight="70dp"
+        android:text="@string/submit"
+        android:textColor="#fff" />
+</LinearLayout>

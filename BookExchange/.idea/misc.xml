@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/drawable/ic_search_24dp.xml" value="0.1" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/layout-w1240dp/content_scrolling.xml" value="0.1" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/layout-w936dp/book_dialog.xml" value="0.1" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/layout-w936dp/book_item.xml" value="0.1" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/layout-w936dp/content_scrolling.xml" value="0.1" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/layout-w936dp/owned_book_item.xml" value="0.1" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/layout/activity_book_list.xml" value="0.18609022556390978" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/layout/activity_claimed_book.xml" value="0.1" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/layout/activity_contact.xml" value="0.1" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/layout/activity_owned_book.xml" value="0.3" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/layout/activity_profile.xml" value="0.1" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/layout/activity_register.xml" value="0.1" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/layout/activity_user_book_list.xml" value="0.1" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/layout/activity_user_books.xml" value="0.1" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/layout/book_dialog.xml" value="0.1" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/layout/book_item.xml" value="0.1" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/layout/book_list_card.xml" value="0.1" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/layout/claimed_book_card.xml" value="0.134375" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/layout/claimed_book_item.xml" value="0.3" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/layout/content_scrolling.xml" value="0.1" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/layout/owned_book_card.xml" value="0.1" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/layout/owned_book_item.xml" value="0.1" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/layout/user_dialog.xml" value="0.134375" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/menu/menu_book_list.xml" value="0.1" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/menu/menu_claimed_book.xml" value="0.1" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/menu/menu_contact.xml" value="0.1" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/menu/menu_owned_book.xml" value="0.1" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/menu/menu_profile.xml" value="0.1" />
+        <entry key="..\:/MobileDevelopment/BookExchange/app/src/main/res/menu/top_app_bar.xml" value="0.134375" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MineSweeper</string>
+    <string name="btnReset">Reset</string>
+    <string name="flag_mode">Flag Mode</string>
+    <string name="try_mode">Try Mode</string>
+    <string name="lose_msg">YOU LOSE!</string>
+    <string name="win_msg">YOU WON!</string>
+</resources>

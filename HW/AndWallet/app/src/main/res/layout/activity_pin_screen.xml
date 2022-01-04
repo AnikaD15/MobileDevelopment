@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="50dp"
+    android:orientation="vertical"
+    tools:context=".PinScreen">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pin_prompt"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textColor="@color/purple_700"
+        android:layout_marginVertical="30dp"/>
+
+    <com.poovam.pinedittextfield.SquarePinField
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:inputType="text"
+        android:textSize="16sp"
+        app:cornerRadius="10dp"
+        app:fieldBgColor="#ddd"
+        app:noOfFields="4"
+        android:textSelectHandle="@drawable/text_handle"
+        android:id="@+id/pinText"
+        android:layout_marginTop="15dp"/>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/submit"/>
+
+
+
+</LinearLayout>

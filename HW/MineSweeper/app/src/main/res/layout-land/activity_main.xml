@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#313636"
+    android:orientation="horizontal"
+    android:layout_gravity="center_horizontal"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_margin="30dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <hu.ait.minesweeper.view.MineSweeperView
+            android:id="@+id/mineSweeperView"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_margin="40dp"
+        android:weightSum="2"
+        tools:context=".MainActivity">
+
+        <ToggleButton
+            android:id="@+id/tgbtnIsFlag"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:layout_margin="20dp"
+            android:textOff="@string/flag_mode"
+            android:textOn="@string/try_mode" />
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:layout_margin="20dp"
+            android:text="@string/btnReset" />
+
+    </LinearLayout>
+
+</LinearLayout>

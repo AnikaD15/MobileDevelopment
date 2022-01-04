@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="condition_array">
+        <item>New - unused, recently purchased</item>
+        <item>Good - no damage, slight worn </item>
+        <item>Fair - slightly damaged, but usable </item>
+        <item>Bad - extremely damaged</item>
+    </string-array>
+</resources>

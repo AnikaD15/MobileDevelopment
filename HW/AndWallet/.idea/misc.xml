@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Dev/AndWallet/app/src/main/res/layout/activity_main.xml" value="0.3" />
+        <entry key="..\:/Dev/AndWallet/app/src/main/res/layout/activity_main1.xml" value="0.22333333333333336" />
+        <entry key="..\:/Dev/AndWallet/app/src/main/res/layout/activity_pin_screen.xml" value="0.1" />
+        <entry key="..\:/Dev/AndWallet/app/src/main/res/layout/activity_summary.xml" value="0.1" />
+        <entry key="..\:/Dev/AndWallet/app/src/main/res/layout/gradient.xml" value="0.1" />
+        <entry key="..\:/Dev/AndWallet/app/src/main/res/layout/item_details.xml" value="0.32653061224489793" />
+        <entry key="..\:/Dev/AndWallet/app/src/main/res/menu/menu_main.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

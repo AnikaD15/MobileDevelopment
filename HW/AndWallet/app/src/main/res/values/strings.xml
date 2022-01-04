@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">AndWallet</string>
+    <string name="income">Income $%1$.2f</string>
+    <string name="expense">Expense $%1$.2f</string>
+    <string name="balance">Balance $%1$.2f</string>
+    <string name="delete_all">Delete All</string>
+    <string name="summary">Summary</string>
+    <string name="home">Home</string>
+    <string name="summ_title">AndWallet</string>
+    <string name="summ_descrip">This view shows your current balance</string>
+    <string name="btn_expense">Expense</string>
+    <string name="btn_income">Income</string>
+    <string name="amnt_list">$%1$.2f</string>
+    <string name="submit">Submit</string>
+    <string name="pin_prompt">Enter 4 digit PIN code</string>
+    <string name="pin_error">Wrong pin!</string>
+    <string name="delete">Delete</string>
+    <string name="btn_save">Save</string>
+</resources>

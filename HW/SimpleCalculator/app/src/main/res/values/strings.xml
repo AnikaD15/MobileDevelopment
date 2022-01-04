@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SimpleCalculator</string>
+    <string name="btnPlus">Plus</string>
+    <string name="btnMinus">Minus</string>
+    <string name="tvResult">Result: </string>
+    <string name="instrMsg">Enter the operands below:</string>
+</resources>

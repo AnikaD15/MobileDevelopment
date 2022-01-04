@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:background="#F4E982"
+    android:theme="@style/DetailsTheme"
+    tools:context=".DetailsActivity">
+
+    <ImageView
+        android:id="@+id/imgIcon"
+        android:layout_width="413dp"
+        android:layout_height="201dp"
+        android:layout_marginTop="32dp"
+        android:transitionName="itemDetails"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/other" />
+
+    <TextView
+        android:id="@+id/detName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="51dp"
+        android:text="@string/item_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgIcon" />
+
+    <TextView
+        android:id="@+id/detCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/item_category"
+        app:layout_constraintStart_toStartOf="@+id/detName"
+        app:layout_constraintTop_toBottomOf="@+id/detName" />
+
+    <TextView
+        android:id="@+id/detPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/item_price"
+        app:layout_constraintStart_toStartOf="@+id/detCategory"
+        app:layout_constraintTop_toBottomOf="@+id/detCategory" />
+
+    <TextView
+        android:id="@+id/detDescrip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/item_description"
+        app:layout_constraintStart_toStartOf="@+id/detPrice"
+        app:layout_constraintTop_toBottomOf="@+id/detPrice" />
+
+    <CheckBox
+        android:id="@+id/detStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:clickable="false"
+        android:text="@string/item_has_been_purchased"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detDescrip"
+        app:layout_constraintVertical_bias="0.245" />
+</androidx.constraintlayout.widget.ConstraintLayout>

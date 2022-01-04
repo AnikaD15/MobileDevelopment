@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "235237708193",
+    "project_id": "aitforum-17de2",
+    "storage_bucket": "aitforum-17de2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235237708193:android:1bbac2d39d2bd69684bbe0",
+        "android_client_info": {
+          "package_name": "hu.ait.aitforum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "235237708193-g5as95b6fgbr6snhumkrt3m75po8npvk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4_cSj_7-4Es05E2Noq6_EfaDhhaCtzBg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "235237708193-g5as95b6fgbr6snhumkrt3m75po8npvk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
