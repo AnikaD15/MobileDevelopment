@@ -111,9 +111,5 @@ class ContactActivity : AppCompatActivity() {
         intent.type = "message/rfc822"
         startActivity(intent)
         launchEmailActivity = true
-
-
-        // TODO fix timing of toast message
-        // Toast.makeText(this, getString(R.string.msg_sent), Toast.LENGTH_LONG).show()
     }
 }
