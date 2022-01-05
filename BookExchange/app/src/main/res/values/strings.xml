@@ -56,5 +56,7 @@
     <string name="contact_us">Contact Us</string>
     <string name="search">Search</string>
     <string name="more">More</string>
+    <string name="claim_end_date">Claim ends on %1$s</string>
+    <string name="claimed_by">Claimed by %1$s</string>
 
 </resources>

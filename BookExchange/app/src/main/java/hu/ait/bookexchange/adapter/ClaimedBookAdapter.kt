@@ -1,6 +1,7 @@
 package hu.ait.bookexchange.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
@@ -43,8 +44,9 @@ class ClaimedBookAdapter: RecyclerView.Adapter<ClaimedBookAdapter.ViewHolder>{
         val book = bookList[holder.adapterPosition]
 
         // check claim end date
-
-
+        if(book.claimEndDate?.after(Calendar.getInstance().time) == true){
+            unclaimBook(position)
+        }
 
         holder.bind(book)
 
@@ -90,6 +92,7 @@ class ClaimedBookAdapter: RecyclerView.Adapter<ClaimedBookAdapter.ViewHolder>{
         bookList[pos].isClaimed = false
         bookList[pos].claimedBy = ""
         bookList[pos].claimEndDate = null
+        notifyItemChanged(pos)
         val bookCollection = FirebaseFirestore.getInstance().collection(BookListActivity.COLLECTION_BOOKS)
         bookCollection.document(bookKeys[pos]).set(bookList[pos])
     }
@@ -107,6 +110,7 @@ class ClaimedBookAdapter: RecyclerView.Adapter<ClaimedBookAdapter.ViewHolder>{
             binding.tvPrice.text =  (context as ClaimedBookActivity).getString(R.string.price, book.price)
             binding.tvCondition.text = (context as ClaimedBookActivity).resources
                 .getStringArray(R.array.condition_array)[book.condition]
+            binding.tvClaimEndDate.text = (context as ClaimedBookActivity).getString(R.string.claim_end_date, book.claimEndDate.toString())
 
             var userCollection = FirebaseFirestore.getInstance().collection(COLLECTION_USERS)
             userCollection.whereEqualTo("user_id", book.user_id).get()
@@ -122,8 +126,9 @@ class ClaimedBookAdapter: RecyclerView.Adapter<ClaimedBookAdapter.ViewHolder>{
                             )
 
                             binding.tvUser.text = (context as ClaimedBookActivity).getString(R.string.owned_by, user.name)
-                        }
 
+                            break
+                        }
                     }
                 }
         }

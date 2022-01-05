@@ -1,13 +1,16 @@
 package hu.ait.bookexchange.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
 import hu.ait.bookexchange.BookListActivity
+import hu.ait.bookexchange.ClaimedBookActivity
 import hu.ait.bookexchange.R
 import hu.ait.bookexchange.data.Book
 import hu.ait.bookexchange.databinding.BookListCardBinding
@@ -59,13 +62,16 @@ class BookListAdapter : RecyclerView.Adapter<BookListAdapter.ViewHolder>  {
         // update book in database
         bookList[index].isClaimed = true
         bookList[index].claimedBy = currUserId
-        notifyItemChanged(index)
-        val bookCollection = FirebaseFirestore.getInstance().collection(BookListActivity.COLLECTION_BOOKS)
-        bookCollection.document(bookKeys[index]).set(bookList[index])
 
         val calendar = Calendar.getInstance()
         calendar.add(Calendar.DATE, CLAIM_PERIOD)
         bookList[index].claimEndDate = calendar.time
+
+        notifyItemChanged(index)
+        val bookCollection = FirebaseFirestore.getInstance().collection(BookListActivity.COLLECTION_BOOKS)
+        bookCollection.document(bookKeys[index]).set(bookList[index])
+
+        Toast.makeText(context as BookListActivity, (context as BookListActivity).getString(R.string.claim_end_date, bookList[index].claimEndDate.toString()), Toast.LENGTH_LONG).show()
     }
 
     private fun removeBook(index: Int) {
