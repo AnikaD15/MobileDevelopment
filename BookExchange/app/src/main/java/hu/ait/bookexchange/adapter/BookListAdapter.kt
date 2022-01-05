@@ -20,6 +20,8 @@ class BookListAdapter : RecyclerView.Adapter<BookListAdapter.ViewHolder>  {
     var  bookList = mutableListOf<Book>()
     var  bookKeys = mutableListOf<String>()
 
+    val CLAIM_PERIOD = 3 // number of days for claim
+
     constructor(context: Context, uid: String) : super() {
         this.context = context
         this.currUserId = uid
@@ -61,9 +63,9 @@ class BookListAdapter : RecyclerView.Adapter<BookListAdapter.ViewHolder>  {
         val bookCollection = FirebaseFirestore.getInstance().collection(BookListActivity.COLLECTION_BOOKS)
         bookCollection.document(bookKeys[index]).set(bookList[index])
 
-//        val calendar = Calendar.getInstance()
-//        calendar.add(Calendar.DATE, CLAIM_PERIOD)
-//        bookList[index].claimEndDate = calendar.time
+        val calendar = Calendar.getInstance()
+        calendar.add(Calendar.DATE, CLAIM_PERIOD)
+        bookList[index].claimEndDate = calendar.time
     }
 
     private fun removeBook(index: Int) {

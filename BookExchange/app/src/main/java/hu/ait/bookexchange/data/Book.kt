@@ -12,7 +12,8 @@ data class Book(
     var price: Float = 0f,
     var imgUrl: String = "",
     var isClaimed: Boolean = false,
-    var claimedBy: String = ""
+    var claimedBy: String = "",
+    var claimEndDate: Date? = null
 ) : Serializable {
 
     companion object {

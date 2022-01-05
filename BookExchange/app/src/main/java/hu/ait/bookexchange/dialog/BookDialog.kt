@@ -208,6 +208,7 @@ class BookDialog: DialogFragment() {
             imgUrl = imgUrl,
             isClaimed = bookEdit.isClaimed,
             claimedBy = bookEdit.claimedBy,
+            claimEndDate = bookEdit.claimEndDate
         )
 
         bookHandler.bookUpdated(bookEdit, arguments?.getSerializable(

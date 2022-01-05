@@ -41,6 +41,11 @@ class ClaimedBookAdapter: RecyclerView.Adapter<ClaimedBookAdapter.ViewHolder>{
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val book = bookList[holder.adapterPosition]
+
+        // check claim end date
+
+
+
         holder.bind(book)
 
         if (book.imgUrl.isNotEmpty()) {
@@ -84,6 +89,7 @@ class ClaimedBookAdapter: RecyclerView.Adapter<ClaimedBookAdapter.ViewHolder>{
     fun unclaimBook(pos: Int){
         bookList[pos].isClaimed = false
         bookList[pos].claimedBy = ""
+        bookList[pos].claimEndDate = null
         val bookCollection = FirebaseFirestore.getInstance().collection(BookListActivity.COLLECTION_BOOKS)
         bookCollection.document(bookKeys[pos]).set(bookList[pos])
     }

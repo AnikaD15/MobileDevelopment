@@ -11,10 +11,13 @@ import android.view.Menu
 import android.view.MenuItem
 import com.google.firebase.auth.FirebaseAuth
 import java.lang.Exception
+import kotlin.concurrent.thread
 
 
 class ContactActivity : AppCompatActivity() {
     private lateinit var binding: ActivityContactBinding
+
+    var launchEmailActivity = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,21 +26,28 @@ class ContactActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnSubmit.setOnClickListener {
-            if(isFormValid()){
+            if (isFormValid()) {
                 val emailsubject: String = binding.etSubject.text.toString()
                 val emailbody: String = binding.etMsg.text.toString()
                 val emailsender: String = FirebaseAuth.getInstance().currentUser!!.email.toString()
 
                 try {
                     sendEmail(getString(R.string.app_email), emailsender, emailsubject, emailbody)
-                    Toast.makeText(this, getString(R.string.msg_sent), Toast.LENGTH_LONG).show()
-                    startActivity(Intent(this, BookListActivity::class.java))
-                }
-                catch (e: Exception){
+
+                } catch (e: Exception) {
                     Log.d("TAG_CONTACT", e.message.toString())
                     Toast.makeText(this, "MESSAGE NOT SENT. TRY AGAIN", Toast.LENGTH_LONG).show()
                 }
             }
+        }
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        if(launchEmailActivity){
+            Toast.makeText(this, getString(R.string.msg_sent), Toast.LENGTH_LONG).show()
+            launchEmailActivity = false
+            finish()
         }
     }
 
@@ -88,20 +98,22 @@ class ContactActivity : AppCompatActivity() {
         }
     }
 
-    fun sendEmail(recipient: String, sender: String, subject: String, msg: String){
+    fun sendEmail(recipient: String, sender: String, subject: String, msg: String) {
         // define Intent object
         // with action attribute as ACTION_SEND
         val intent = Intent(Intent.ACTION_SEND)
+
         intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(recipient))
         intent.putExtra(Intent.EXTRA_SUBJECT, subject)
         intent.putExtra(Intent.EXTRA_TEXT, msg)
 
         // set type of intent
         intent.type = "message/rfc822"
-
         startActivity(intent)
-        finish()
+        launchEmailActivity = true
+
+
+        // TODO fix timing of toast message
+        // Toast.makeText(this, getString(R.string.msg_sent), Toast.LENGTH_LONG).show()
     }
-
-
 }
