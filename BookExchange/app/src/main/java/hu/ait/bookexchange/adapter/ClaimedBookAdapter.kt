@@ -1,10 +1,7 @@
 package hu.ait.bookexchange.adapter
 
 import android.content.Context
-import android.util.Log
-import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
@@ -42,9 +39,9 @@ class ClaimedBookAdapter: RecyclerView.Adapter<ClaimedBookAdapter.ViewHolder>{
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val book = bookList[holder.adapterPosition]
-
-        // check claim end date
-        if(book.claimEndDate?.after(Calendar.getInstance().time) == true){
+        
+        // true if the current time is after the claim time
+        if(Calendar.getInstance().after(book.claimEndDate) == true){
             unclaimBook(position)
         }
 
@@ -92,7 +89,7 @@ class ClaimedBookAdapter: RecyclerView.Adapter<ClaimedBookAdapter.ViewHolder>{
         bookList[pos].isClaimed = false
         bookList[pos].claimedBy = ""
         bookList[pos].claimEndDate = null
-        notifyItemChanged(pos)
+
         val bookCollection = FirebaseFirestore.getInstance().collection(BookListActivity.COLLECTION_BOOKS)
         bookCollection.document(bookKeys[pos]).set(bookList[pos])
     }

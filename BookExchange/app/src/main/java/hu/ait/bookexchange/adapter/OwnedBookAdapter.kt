@@ -2,6 +2,7 @@ package hu.ait.bookexchange.adapter
 
 import android.content.Context
 import android.opengl.Visibility
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -114,6 +115,7 @@ class OwnedBookAdapter: RecyclerView.Adapter<OwnedBookAdapter.ViewHolder>{
                                 binding.tvUser.text = (context as OwnedBookActivity)
                                     .getString(R.string.claimed_by, claimUser.name)
 
+                                Log.d("TAG_CLAIM_USER", claimUser.name)
                                 break
                             }
                         }
