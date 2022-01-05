@@ -15,6 +15,7 @@ import com.google.firebase.firestore.EventListener
 import hu.ait.bookexchange.BookListActivity.Companion.COLLECTION_BOOKS
 import hu.ait.bookexchange.adapter.OwnedBookAdapter
 import hu.ait.bookexchange.data.Book
+import hu.ait.bookexchange.data.User
 import hu.ait.bookexchange.databinding.ActivityOwnedBookBinding
 import java.util.*
 
@@ -121,6 +122,14 @@ class OwnedBookActivity : AppCompatActivity(), BookDialog.BookHandler {
         bundle.putSerializable(BOOK_KEY, key)
         editDialog.arguments = bundle
         editDialog.show(supportFragmentManager, "TAG_BOOK_EDIT")
+    }
+
+    fun showUserDialog(user: User) {
+        val viewDialog = UserDialog()
+        val bundle = Bundle()
+        bundle.putSerializable(ClaimedBookActivity.KEY_USER_VIEW, user)
+        viewDialog.arguments = bundle
+        viewDialog.show(supportFragmentManager, "TAG_USER_VIEW")
     }
 
     override fun bookCreated(newBook: Book) {

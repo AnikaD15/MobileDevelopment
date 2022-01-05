@@ -19,7 +19,7 @@ class OwnedBookAdapter: RecyclerView.Adapter<OwnedBookAdapter.ViewHolder>{
     private var currUserId: String
     private var  bookList = mutableListOf<Book>()
     private var  bookKeys = mutableListOf<String>()
-    lateinit var claimUser : User
+    private lateinit var claimUser : User
 
     constructor(context: Context, uid: String) : super() {
         this.context = context
@@ -46,7 +46,7 @@ class OwnedBookAdapter: RecyclerView.Adapter<OwnedBookAdapter.ViewHolder>{
         }
 
         holder.binding.tvUser.setOnClickListener{
-            (context as ClaimedBookActivity).showUserDialog(claimUser)
+            (context as OwnedBookActivity).showUserDialog(claimUser)
         }
 
         holder.binding.btnEdit.setOnClickListener {
@@ -100,7 +100,8 @@ class OwnedBookAdapter: RecyclerView.Adapter<OwnedBookAdapter.ViewHolder>{
             if(book.isClaimed){
                 var userCollection = FirebaseFirestore.getInstance()
                     .collection(RegisterActivity.COLLECTION_USERS)
-                userCollection.whereEqualTo("user_id", book.user_id).get()
+
+                userCollection.whereEqualTo("user_id", book.claimedBy).get()
                     .addOnSuccessListener { documents ->
                         for (document in documents) {
                             if(book.claimedBy == document.data.get("user_id").toString()){
