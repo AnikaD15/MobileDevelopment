@@ -11,6 +11,30 @@
         android:id="@+id/more"
         android:title="@string/more"
         app:menu="@menu/menu_book_list"
-        app:showAsAction="never" />
+        app:showAsAction="never">
+
+        <menu>
+            <item
+                android:id="@+id/action_profile"
+                android:orderInCategory="100"
+                android:title="@string/profile" />
+            <item
+                android:id="@+id/action_owned_books"
+                android:orderInCategory="100"
+                android:title="@string/your_books" />
+            <item
+                android:id="@+id/action_claimed_books"
+                android:orderInCategory="100"
+                android:title="@string/claimed_books" />
+            <item
+                android:id="@+id/action_contact"
+                android:orderInCategory="100"
+                android:title="@string/contact_us" />
+            <item
+                android:id="@+id/action_logout"
+                android:orderInCategory="100"
+                android:title="@string/log_out" />
+        </menu>
+    </item>
 
 </menu>
