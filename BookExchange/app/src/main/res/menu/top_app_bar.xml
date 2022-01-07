@@ -8,9 +8,8 @@
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/more"
-        android:title="@string/more"
-        app:menu="@menu/menu_book_list"
+        android:id="@+id/nav"
+        android:title="@string/navigation"
         app:showAsAction="never">
 
         <menu>

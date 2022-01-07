@@ -55,11 +55,11 @@
     <string name="app_email">nikaduffus@gmail.com</string>
     <string name="contact_us">Contact Us</string>
     <string name="search">Search</string>
-    <string name="more">More</string>
     <string name="claim_end_date">Claim ends on %1$s</string>
     <string name="claimed_by">Claimed by %1$s</string>
     <string name="claim_error">Could not claim book. Please try again.</string>
     <string name="free">Free!</string>
     <string name="neg_price_error">Price can not be negative.</string>
+    <string name="navigation">Navigation</string>
 
 </resources>
