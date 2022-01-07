@@ -172,6 +172,10 @@ class BookDialog: DialogFragment() {
                 bookDialogBinding.etPrice.error = getString(R.string.empty_field_error)
             }
 
+            if (bookDialogBinding.etPrice.text.toString().toFloat() < 0){
+                bookDialogBinding.etPrice.error = getString(R.string.neg_price_error)
+            }
+
             if (bookDialogBinding.etTitle.text.isNotEmpty() &&
                 bookDialogBinding.etPrice.text.isNotEmpty() &&
                 bookDialogBinding.etAuthor.text.isNotEmpty()) {

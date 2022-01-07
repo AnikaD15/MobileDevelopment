@@ -104,7 +104,15 @@ class ClaimedBookAdapter: RecyclerView.Adapter<ClaimedBookAdapter.ViewHolder>{
         fun bind(book: Book){
             binding.tvTitle.text = book.title
             binding.tvAuthor.text = book.author
-            binding.tvPrice.text =  (context as ClaimedBookActivity).getString(R.string.price, book.price)
+
+            if(book.price==0f){
+                binding.tvPrice.text = context.getString(R.string.free)
+            }
+            else{
+                binding.tvPrice.text =
+                    (context as ClaimedBookActivity).getString(R.string.price, book.price)
+            }
+
             binding.tvCondition.text = (context as ClaimedBookActivity).resources
                 .getStringArray(R.array.condition_array)[book.condition]
             binding.tvClaimEndDate.text = (context as ClaimedBookActivity).getString(R.string.claim_end_date, book.claimEndDate.toString())
