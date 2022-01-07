@@ -58,5 +58,6 @@
     <string name="more">More</string>
     <string name="claim_end_date">Claim ends on %1$s</string>
     <string name="claimed_by">Claimed by %1$s</string>
+    <string name="claim_error">Could not claim book. Please try again.</string>
 
 </resources>
