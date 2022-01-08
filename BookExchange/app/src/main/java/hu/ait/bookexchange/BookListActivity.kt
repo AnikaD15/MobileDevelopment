@@ -12,6 +12,7 @@ import com.google.firebase.firestore.*
 import hu.ait.bookexchange.adapter.BookListAdapter
 import hu.ait.bookexchange.data.Book
 import hu.ait.bookexchange.databinding.ActivityBookListBinding
+import hu.ait.bookexchange.dialog.FilterDialog
 
 class BookListActivity : AppCompatActivity(){
 
@@ -100,6 +101,13 @@ class BookListActivity : AppCompatActivity(){
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            // app bar options
+            R.id.search ->{
+                FilterDialog().show(supportFragmentManager, FilterDialog.TAG)
+                true
+            }
+
+            // more actions
             R.id.action_profile -> {
                 startActivity(Intent(this, ProfileActivity::class.java))
                 true
