@@ -61,5 +61,7 @@
     <string name="free">Free!</string>
     <string name="neg_price_error">Price can not be negative.</string>
     <string name="navigation">Navigation</string>
+    <string name="min_price">Min Price</string>
+    <string name="max_price">Max Price</string>
 
 </resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="search_condition_array">
+        <item>No preference</item>
+        <item>New</item>
+        <item>Good</item>
+        <item>Fair</item>
+        <item>Bad</item>
+    </string-array>
+</resources>

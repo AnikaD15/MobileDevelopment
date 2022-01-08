@@ -11,10 +11,12 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.*
 import hu.ait.bookexchange.adapter.BookListAdapter
 import hu.ait.bookexchange.data.Book
+import hu.ait.bookexchange.data.Search
+import hu.ait.bookexchange.data.Search.Companion.NONE
 import hu.ait.bookexchange.databinding.ActivityBookListBinding
 import hu.ait.bookexchange.dialog.FilterDialog
 
-class BookListActivity : AppCompatActivity(){
+class BookListActivity : AppCompatActivity(), FilterDialog.QueryHandler{
 
     private lateinit var binding: ActivityBookListBinding
     private lateinit var adapter: BookListAdapter
@@ -37,21 +39,6 @@ class BookListActivity : AppCompatActivity(){
         initFirebaseQuery()
 
         setSupportActionBar(findViewById(R.id.toolbar))
-
-//        binding.topAppBar.setOnMenuItemClickListener { menuItem ->
-//            when (menuItem.itemId) {
-//                R.id.search -> {
-//                    // Handle search icon press
-//                    true
-//                }
-//                R.id.more -> {
-//                    // Handle more item (inside overflow menu) press
-//                    // menuInflater.inflate(R.menu.menu_book_list, )
-//                    true
-//                }
-//                else -> false
-//            }
-//        }
     }
 
     private fun initFirebaseQuery() {
@@ -131,5 +118,54 @@ class BookListActivity : AppCompatActivity(){
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun updateSearch(search: Search) {
+        var queryRefBooks = FirebaseFirestore.getInstance().collection(COLLECTION_BOOKS)
+
+        if(!search.title.isNullOrEmpty()){
+            queryRefBooks.whereEqualTo("title", search.title)
+        }
+
+        if(!search.author.isNullOrEmpty()){
+            queryRefBooks.whereEqualTo("author", search.author)
+        }
+
+        if(search.condition != NONE){
+            queryRefBooks.whereEqualTo("condition", search.condition)
+        }
+
+        if(search.minPrice > 0 || search.maxPrice < Float.MAX_VALUE){
+            queryRefBooks.whereGreaterThan("price", search.minPrice)
+                .whereLessThan("price", search.maxPrice)
+        }
+
+        val eventListener = object : EventListener<QuerySnapshot> {
+            override fun onEvent(querySnapshot: QuerySnapshot?, e: FirebaseFirestoreException?) {
+                if (e != null) {
+                    Toast.makeText(
+                        this@BookListActivity, getString(R.string.error_msg, e.message),
+                        Toast.LENGTH_LONG
+                    ).show()
+                    Log.d("TAG_INDEX", getString(R.string.error_msg, e.message))
+                    return
+                }
+
+                for (docChange in querySnapshot?.getDocumentChanges()!!) {
+                    if (docChange.type == DocumentChange.Type.ADDED) {
+                        // converts the document from the "posts" collection into a Post object
+                        val book = docChange.document.toObject(Book::class.java)
+                        adapter.addBook(book, docChange.document.id)
+                    } else if (docChange.type == DocumentChange.Type.REMOVED) {
+                        adapter.removeBookByKey(docChange.document.id)
+                    } else if (docChange.type == DocumentChange.Type.MODIFIED) {
+                        val book = docChange.document.toObject(Book::class.java)
+                        adapter.updateBook(book, docChange.document.id)
+                    }
+                }
+            }
+        }
+
+        listenerReg = queryRefBooks.addSnapshotListener(eventListener)
     }
 }
