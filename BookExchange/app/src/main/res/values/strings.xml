@@ -63,5 +63,6 @@
     <string name="navigation">Navigation</string>
     <string name="min_price">Min Price</string>
     <string name="max_price">Max Price</string>
+    <string name="queryhandler_exception">Activity not implementing QueryHandler interface</string>
 
 </resources>

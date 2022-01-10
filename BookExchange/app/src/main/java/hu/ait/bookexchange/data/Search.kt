@@ -3,8 +3,8 @@ package hu.ait.bookexchange.data
 import java.io.Serializable
 
 data class Search(
-    var author: String? = null,
-    var title: String? = null,
+    var author: String = "",
+    var title: String = "",
     var minPrice: Float = 0f,
     var maxPrice: Float = Float.MAX_VALUE,
     var condition: Int = NONE,

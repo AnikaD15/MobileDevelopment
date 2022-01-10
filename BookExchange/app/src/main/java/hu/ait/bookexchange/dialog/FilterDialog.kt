@@ -1,6 +1,7 @@
 package hu.ait.bookexchange.dialog
 
 import android.app.Dialog
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,9 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import hu.ait.bookexchange.BookDialog
+import hu.ait.bookexchange.BookListActivity
+import hu.ait.bookexchange.OwnedBookActivity
 import hu.ait.bookexchange.R
 import hu.ait.bookexchange.data.Book
 import hu.ait.bookexchange.data.Search
@@ -24,8 +28,21 @@ class FilterDialog : BottomSheetDialogFragment() {
         const val TAG = "FilterDialog"
     }
 
+    lateinit var queryHandler: QueryHandler
     lateinit var filterDialogBinding: FilterDialogBinding
     lateinit var filter: Search
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+        if (context is FilterDialog.QueryHandler){
+            queryHandler = context
+        }
+        else {
+            throw RuntimeException(
+                getString(R.string.queryhandler_exception))
+        }
+    }
 
 //    override fun onCreateView(
 //        inflater: LayoutInflater,
@@ -39,11 +56,22 @@ class FilterDialog : BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View?
     {
-        val dialogBuilder = AlertDialog.Builder(requireContext())
+        //val dialogBuilder = AlertDialog.Builder(requireContext())
         filterDialogBinding = FilterDialogBinding.inflate(layoutInflater)
-        dialogBuilder.setView(filterDialogBinding.root)
+        //dialogBuilder.setView(filterDialogBinding.root)
 
         // set filter binding contents
+        filter =
+            requireArguments().getSerializable(
+                BookListActivity.KEY_FILTER) as Search
+
+        // title
+        filterDialogBinding.etTitle.setText(filter.title)
+        // author
+        filterDialogBinding.etAuthor.setText(filter.author)
+        // prices
+        filterDialogBinding.etMinPrice.setText(filter.minPrice.toString())
+        filterDialogBinding.etMaxPrice.setText(filter.maxPrice.toString())
         // book condition spinner
         val conditionAdapter = ArrayAdapter.createFromResource(
             requireActivity(),
@@ -55,10 +83,11 @@ class FilterDialog : BottomSheetDialogFragment() {
         )
         filterDialogBinding.spinnerConditions.adapter = conditionAdapter
 
-        // title
+        // button
+        filterDialogBinding.btnSearch.setOnClickListener {
+            queryHandler.updateSearch(filter)
+        }
+
         return inflater.inflate(R.layout.filter_dialog, container, false)
     }
-
-
-
 }
