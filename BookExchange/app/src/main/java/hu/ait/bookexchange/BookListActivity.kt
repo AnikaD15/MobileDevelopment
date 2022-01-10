@@ -21,8 +21,10 @@ class BookListActivity : AppCompatActivity(), FilterDialog.QueryHandler{
     private lateinit var binding: ActivityBookListBinding
     private lateinit var adapter: BookListAdapter
     private var listenerReg: ListenerRegistration? = null
+    var filter = Search()
 
     companion object{
+        const val KEY_FILTER = "KEY_FILTER"
         const val COLLECTION_BOOKS = "books"
     }
 
@@ -90,7 +92,11 @@ class BookListActivity : AppCompatActivity(), FilterDialog.QueryHandler{
         return when (item.itemId) {
             // app bar options
             R.id.search ->{
-                FilterDialog().show(supportFragmentManager, FilterDialog.TAG)
+                val filterDialog = FilterDialog()
+                val bundle = Bundle()
+                bundle.putSerializable(BookListActivity.KEY_FILTER, filter)
+                filterDialog.arguments = bundle
+                filterDialog.show(supportFragmentManager, FilterDialog.TAG)
                 true
             }
 

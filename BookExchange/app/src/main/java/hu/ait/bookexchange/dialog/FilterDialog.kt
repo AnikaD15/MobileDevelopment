@@ -20,11 +20,20 @@ class FilterDialog : BottomSheetDialogFragment() {
         const val TAG = "FilterDialog"
     }
 
+//    override fun onCreateView(
+//        inflater: LayoutInflater,
+//        container: ViewGroup?,
+//        savedInstanceState: Bundle?
+//    ): View? = inflater.inflate(R.layout.filter_dialog, container, false)
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.filter_dialog, container, false)
+    ): View?
+    {
+        return inflater.inflate(R.layout.filter_dialog, container, false)
+    }
 
 
 

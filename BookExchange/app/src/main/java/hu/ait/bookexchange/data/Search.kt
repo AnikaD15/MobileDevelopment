@@ -1,5 +1,7 @@
 package hu.ait.bookexchange.data
 
+import java.io.Serializable
+
 data class Search(
     var author: String? = null,
     var title: String? = null,
@@ -7,7 +9,8 @@ data class Search(
     var maxPrice: Float = Float.MAX_VALUE,
     var condition: Int = NONE,
 
-){
+) : Serializable
+{
     companion object {
         const val NEW: Int = 0
         const val GOOD: Int = 1
