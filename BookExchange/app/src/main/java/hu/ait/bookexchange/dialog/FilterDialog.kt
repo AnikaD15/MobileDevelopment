@@ -8,6 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import hu.ait.bookexchange.BookDialog
 import hu.ait.bookexchange.BookListActivity
@@ -17,6 +20,11 @@ import hu.ait.bookexchange.data.Book
 import hu.ait.bookexchange.data.Search
 import hu.ait.bookexchange.databinding.BookDialogBinding
 import hu.ait.bookexchange.databinding.FilterDialogBinding
+
+import android.widget.LinearLayout
+
+
+
 
 class FilterDialog : BottomSheetDialogFragment() {
 
@@ -56,6 +64,11 @@ class FilterDialog : BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View?
     {
+//        val bottomSheetDialog = BottomSheetDialog(requireContext())
+//        bottomSheetDialog.setContentView(R.layout.filter_dialog)
+//        bottomSheetDialog.show()
+
+        var v =  inflater.inflate(R.layout.filter_dialog, container, false)
         //val dialogBuilder = AlertDialog.Builder(requireContext())
         filterDialogBinding = FilterDialogBinding.inflate(layoutInflater)
         //dialogBuilder.setView(filterDialogBinding.root)
@@ -87,7 +100,6 @@ class FilterDialog : BottomSheetDialogFragment() {
         filterDialogBinding.btnSearch.setOnClickListener {
             queryHandler.updateSearch(filter)
         }
-
-        return inflater.inflate(R.layout.filter_dialog, container, false)
+        return v
     }
 }
